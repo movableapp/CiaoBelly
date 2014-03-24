@@ -15,8 +15,7 @@ window.require = require;
 
 
 /**
- * StartApp
+ * Setup Cogwheels
  */
-window.startApp = function() {
-    require('hello-world').start();
-};
+window.cogwheels = require('cogwheels');
+window.cogwheels.features = features;

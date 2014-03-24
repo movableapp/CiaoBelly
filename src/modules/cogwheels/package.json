@@ -1,0 +1,17 @@
+{
+    "globals" : [
+        "layout-engine",
+        "layout-engine/region-handler",
+        "router",
+        "router/querystring",
+        "router/context",
+        "router/path-to-regexp",
+        "message-bus",
+        "web-storage",
+        "web-storage/cookie",
+        "web-storage/dom-storage",
+        "utils/extend",
+        "utils/url",
+        "utils/uuid"
+    ]
+}

@@ -1,4 +1,4 @@
 CiaoBelly
 =========
 
-weight control app
+> Weight Control App

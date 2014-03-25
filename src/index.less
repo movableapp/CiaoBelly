@@ -11,11 +11,44 @@
 
 @import "assets/less/reset.less";
 @import "assets/less/lesshat.less";
+@import "assets/less/mixins.less";
+@import "assets/less/toolbar.less";
+
+.flex-row() {
+    .display(flex);
+    .flex-direction(row);
+}
+
+.flex-col() {
+    .display(flex);
+    .flex-direction(column);
+}
 
 html {
+    height:100%;
     background-image: url(assets://img/pattern-89ds.png);
     background-attachment: fixed;
 }
+
+body {
+    height:100%;
+    .flex-col();
+    .justify-content(flex-start);
+}
+
+#header {
+    background-color: #fafafa;
+    background-image: url('assets://img/pattern-96la.png');
+    border-bottom: 4px solid #666;
+}
+
+#main {
+    .flex(1);
+}
+
+
+
+
 
 /*FEATURES*/
 

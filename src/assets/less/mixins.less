@@ -1,0 +1,66 @@
+/**
+ * NoBlackMagic
+ * theme reusable code
+ */
+
+/**
+ * It parses a generic background options
+ * - color
+ * - url
+ * - mixed string
+ */
+.background(@opt) {
+    & when not(@opt = null) and not(@opt = false) {
+        & when (iscolor(@opt)) {
+            background-color: @opt;
+        }
+        & when (isurl(@opt)) {
+            background-image: @opt;
+        }
+        & when (isstring(@opt)) {
+            background: e(@opt);
+        }
+    }
+}
+
+/**
+ * It parse a foreground instruction or a list of:
+ * - red, tahoma, 11px
+ * - "bold 12px/25px verdana", red
+ */
+.foreground(@opt) {
+    .foreground-loop(@list, @i : 1) when (@i =< length(@list)) {
+        @opt:extract(@list, @i);
+        & when (iscolor(@opt)) {
+            color: @opt;
+        }
+        & when (isnumber(@opt)) {
+            font-size: @opt;
+        }
+        & when (iskeyword(@opt)) {
+            font-family: @opt;
+        }
+        & when (isstring(@opt)) {
+            font: e(@opt);
+        }
+        .foreground-loop(@list, (@i + 1));
+    }
+    & when not(@opt = null) and not(@opt = false) {
+        .foreground-loop(@arguments);
+    }
+}
+
+
+/**
+ * Create a text shadow effect.
+ * Support 3D text effect (todo)
+ */
+.text-shadow(@opt, @depth : 1) {
+    & when (isstring(@opt)) {
+        text-shadow: e(@opt);
+    }
+    & when (iscolor(@opt)) {
+        text-shadow: 0 1px 0 @opt;
+    }
+}
+

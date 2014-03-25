@@ -1,0 +1,31 @@
+@height: 44pt;
+
+.toolbar {
+    .flex(1 0 100%);
+    .justify-content(space-between);
+    .align-items(center);
+    .align-content(center);
+    .flex-row();
+    position: relative;
+    height: @height;
+    
+    
+    h1, h2, h3 {
+        .flex(1);
+        text-align: center;
+    }
+}
+
+.toolbar-left-btn, .toolbar-right-btn {
+    position: absolute;
+    top:0;
+    display: block;
+    height: @height;
+    line-height: @height;
+}
+.toolbar-left-btn {
+    left: 0;
+}
+.toolbar-right-btn {
+    right: 0;
+}

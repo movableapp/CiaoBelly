@@ -1,7 +1,7 @@
 {
-  "name": "politejs-workspace",
+  "name": "ciao-belly",
   "version": "0.0.0",
-  "description": "Single Page Application Workspace",
+  "description": "Weight Control App",
   "main": "Gruntfile.js",
   "devDependencies": {
     "grunt": "~0.4.4",

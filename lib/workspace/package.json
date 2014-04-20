@@ -1,0 +1,20 @@
+{
+  "name": "grunt-workspace",
+  "version": "0.1.0",
+  "description": "PoliteJS Workspace Tasks & Utilities",
+  "main": "index.js",
+  "keywords": [],
+  "author": {
+    "name": "Marco Pegoraro",
+    "url": "http://movableapp.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PoliteJS/grunt-workspace"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}

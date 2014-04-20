@@ -1,31 +1,37 @@
-@height: 44pt;
+
+@height: 48px;
+@margin: 5px;
 
 .toolbar {
-    .flex(1 0 100%);
-    .justify-content(space-between);
-    .align-items(center);
-    .align-content(center);
-    .flex-row();
     position: relative;
-    height: @height;
-    
-    
-    h1, h2, h3 {
-        .flex(1);
-        text-align: center;
+    min-height: @height;
+    text-align: center;
+    .text-center();
+    .btn {
+        height: auto;
     }
 }
 
-.toolbar-left-btn, .toolbar-right-btn {
-    position: absolute;
-    top:0;
+.toolbar--left, 
+.toolbar--right {
+    position:absolute;
+    top: @margin;
     display: block;
-    height: @height;
-    line-height: @height;
+    height: @height - ( @margin * 2 );
+    
+    .flex-row();
 }
-.toolbar-left-btn {
-    left: 0;
+
+.toolbar--left {
+    left: @margin;
+    .btn {
+        margin-right: @margin;
+    }
 }
-.toolbar-right-btn {
-    right: 0;
+
+.toolbar--right {
+    right: @margin;
+    .btn {
+        margin-left: @margin;
+    }
 }

@@ -9,10 +9,14 @@
  * each feature.
  */
 
-@import "assets/less/reset.less";
-@import "assets/less/lesshat.less";
-@import "assets/less/mixins.less";
+@import "assets/less/libs/reset.less";
+@import "assets/less/libs/lesshat.less";
+@import "assets/less/libs/mixins.less";
+
+@import "assets/less/btn.less";
 @import "assets/less/toolbar.less";
+
+@theme: #f0861c;
 
 .flex-row() {
     .display(flex);
@@ -24,31 +28,66 @@
     .flex-direction(column);
 }
 
-html {
-    height:100%;
-    background-image: url(assets://img/pattern-89ds.png);
-    background-attachment: fixed;
+.text-center() {
+    .flex-col();
+    .flex-wrap(nowrap);
+    .justify-content(center);
 }
 
-body {
-    height:100%;
+.btn-active() {
+    @color: lighten(@theme, 15%);
+    background: @color;
+    color: contrast(@color);
+}
+
+html, body {
+    height: 100%;
+    font-family: tahoma;
+    font-size: 100.01%;
+}
+
+#app {
+    height: 100%;
     .flex-col();
-    .justify-content(flex-start);
+    font-size: .8em;
 }
 
 #header {
-    background-color: #fafafa;
-    background-image: url('assets://img/pattern-96la.png');
-    border-bottom: 4px solid #666;
+    @text: contrast(@theme);
+    background: @theme;
+    color: @text;
+    border-bottom: 1px solid @text;
+    
+    .btn {
+        color: @text;
+    }
+    .btn:active {
+        .btn-active();
+    }
+    
 }
 
 #main {
+    @bg: average(desaturate(lighten(@theme, 35%), 35%), #fff);
+    @fg: contrast(@bg);
+    
     .flex(1);
+    padding: 10px;
+    
+    background: @bg;
+    color: @fg;
+    
+    .btn {
+        @color: @theme;
+        background: @color;
+        color: contrast(@color);
+        border-radius: 4px;
+    }
+    .btn:active {
+        .btn-active();
+    }
+    
 }
-
-
-
-
 
 /*FEATURES*/
 

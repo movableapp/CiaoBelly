@@ -1,6 +1,8 @@
 
+var router = require('router');
+
 var toolbar = require('./toolbar/controller');
 
-exports.controllers = [
-    toolbar
-];
+exports.init = function() {
+    router.on('/', toolbar.show.bind(toolbar));
+};

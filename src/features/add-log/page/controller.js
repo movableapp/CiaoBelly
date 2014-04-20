@@ -1,8 +1,13 @@
 
 var layoutEngine = require('layout-engine');
+var koTemplate = require('ko-bindings').koTemplate;
 
-var template = require('./template.html');
+exports.init = function() {
+    koTemplate.register('add-log/rating', require('./rating.html'));
+};
 
 exports.show = function() {
-    layoutEngine.render(template, {});
+    var template = require('./template.html');
+    var viewModel = require('./view-model').create;
+    layoutEngine.render(template, viewModel());
 };

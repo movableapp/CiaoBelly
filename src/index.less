@@ -49,6 +49,8 @@ html, body {
     background: @bg;
 }
 
+textarea, input { outline: none; }
+
 #app {
     height: 100%;
     .flex-col();
@@ -56,6 +58,13 @@ html, body {
 }
 
 #header {
+    position: fixed;
+    top:0;
+    left:0;
+    
+    display: block;
+    width: 100%;
+    
     @text: contrast(@themeColor);
     background: @themeColor;
     color: @text;
@@ -77,6 +86,7 @@ html, body {
     
     .flex(1);
     padding: 10px;
+    margin-top: 48px;
     
     background: @bg;
     color: @fg;

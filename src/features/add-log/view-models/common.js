@@ -1,10 +1,14 @@
 
 var vm = require('vm');
 var extend = require('utils/extend');
+var log = require('../log/controller');
 
 var CommonViewModel = vm.extend({
     _init: function() {
         this.rating = ko.observable();
+        this.rating.subscribe(function(value) {
+            log.cache();
+        }, this);
     },
     star1: function() {
         this.rating(1);

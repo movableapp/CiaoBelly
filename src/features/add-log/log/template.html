@@ -1,0 +1,28 @@
+<div>
+    
+    <div class="log-date">
+        <a href="#dateBack" class="btn" data-bind="click:dateBack">&laquo;</a>
+        <h2 class="title" data-bind="textDate:date"></h2>
+        <a href="#dateForward" class="btn" data-bind="click:dateForward">&raquo;</a>
+    </div>
+    
+    <div>
+    
+        <div class="log-rate" data-bind="template: {
+            name: 'add-log/rating',
+            data: sleep
+        }"></div>
+
+        <div class="log-rate" data-bind="template: {
+            name: 'add-log/rating',
+            data: food
+        }"></div>
+
+        <div class="log-rate" data-bind="template: {
+            name: 'add-log/rating',
+            data: train
+        }"></div>
+    
+    </div>
+    
+</div>

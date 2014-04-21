@@ -33,15 +33,15 @@ module.exports = function (grunt) {
          * Workspace Configuration
          */
         'workspace': {
-//            options: {
-//                minifyTemplates: false,
-//                release: {
+            options: {
+                minifyTemplates: false,
+                release: {
 //                    uglify: {
 //                        beautify: true,
 //                        compress: false,
 //                        mangle: false
 //                    },
-//                    minifyHtml: false,
+                    minifyHtml: false,
 //                    inline: {
 //                        css: false,
 //                        js: false
@@ -53,7 +53,7 @@ module.exports = function (grunt) {
 //                            '/assets/css/images/**'  // exclude an entire folder
 //                        ]
 //                    }
-//                },
+                },
 //                karma: {
 //                    test: {
 //                        browsers: [
@@ -65,7 +65,7 @@ module.exports = function (grunt) {
 //                        ]
 //                    }
 //                }
-//            }
+            }
         }
 		
 	});

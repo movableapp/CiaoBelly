@@ -9,7 +9,7 @@ window.ko.bindingHandlers.navigate = {
             target = element.getAttribute('href');
         }
 
-        element.addEventListener('click', function(evt) {
+        element.addEventListener('touchstart', function(evt) {
             evt.preventDefault();
             router.navigate(target);
         }, false);

@@ -1,21 +1,22 @@
-<div>
-    <ul data-bind="foreach:logs">
-        <li>
-            <h1 data-bind="text:time"></h1>
-            <div>
-                <h2>Sleep</h2>
-                <span data-bind="text:sleep"></span>
-            </div>
-            <div>
-                <h2>Food</h2>
-                <span data-bind="text:food"></span>
-            </div>
-            <div>
-                <h2>Train</h2>
-                <span data-bind="text:train"></span>
-            </div>
-            <hr>
-        </li>
-    </ul>
-</div>
+
+<ul data-bind="foreach:logs">
+    <li class="daily-log">
+        <h2 class="title" data-bind="textTimestamp:time"></h2>
+        <ul>
+            <li>
+                <h2 class="title">Sleep</h2>
+                <span class="btn" data-bind="text:sleep"></span>
+            </li>
+            <li>
+                <h2 class="title">Food</h2>
+                <span class="btn" data-bind="text:food"></span>
+            </li>
+            <li>
+                <h2 class="title">Train</h2>
+                <span class="btn" data-bind="text:train"></span>
+            </li>
+        </ul>
+    </li>
+</ul>
+
 

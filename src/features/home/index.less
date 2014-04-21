@@ -1,0 +1,46 @@
+
+.daily-log {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid @themeColor;
+    border-top: 1px solid contrast(@themeColor);
+    &:first-child {
+        border-top: 0px solid #fff;
+    }
+    &:last-child {
+        border-bottom: 0px solid #fff;
+    }
+    
+    .title {
+        text-align: center;
+    }
+    
+    
+    ul {
+        .flex-row();
+        .justify-content(space-between);
+        -webkit-justify-content: space-between;
+        
+        margin-top: 20px;
+        margin-left: 25px;
+        margin-right: 25px;
+        
+        li {
+            text-align: center;
+            
+            .title {
+                margin-bottom: 5px;
+                font-size: 0.7em;
+            }
+            
+            .btn {
+                width: 38px;
+                padding: 0 !important;
+                border-radius: 20px !important;
+            }
+        }
+    
+    }
+    
+}

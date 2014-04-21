@@ -21,7 +21,7 @@ exports.show = function() {
  * the log still editable
  */
 exports.cache = function() {
-    console.log('cache log');
+    this.viewModel.cacheLog();
 };
 
 /**
@@ -30,5 +30,5 @@ exports.cache = function() {
  * after this operation the log is not editable anymore.
  */
 exports.save = function() {
-    console.log('save log');
+    this.viewModel.saveLog();
 };

@@ -20,9 +20,22 @@ exports.set = function(date, data) {
     pushKey(key);
 };
 
+exports.isValid = function(date) {
+    var log = this.get(date);
+    return this.dataIsValid(log);
+};
+
+exports.dataIsValid = function(log) {
+    return (
+        log.sleep !== null &&
+        log.food !== null &&
+        log.train !== null
+    );
+};
+
 exports.save = function(date) {
     var log = this.get(date);
-    if (isValid(log)) {
+    if (this.dataIsValid(log)) {
         log.saved = true;
         this.set(date, log);
         return true;
@@ -42,12 +55,4 @@ function pushKey(key) {
     }
     db.set('dailies', keys);
 //    console.log(db.get('dailies'));
-}
-
-function isValid(log) {
-    return (
-        log.sleep !== null &&
-        log.food !== null &&
-        log.train !== null
-    );
 }

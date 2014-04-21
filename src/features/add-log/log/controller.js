@@ -6,8 +6,8 @@ var template = require('./template.html');
 var viewModel = require('./view-model');
 
 exports.init = function() {
-    koTemplate.register('add-log/rating', require('./rating.html'));
-    koTemplate.register('add-log/show-rating', require('./show-rating.html'));
+    koTemplate.register('add-log/rating-choose', require('./rating-choose.html'));
+    koTemplate.register('add-log/rating-show', require('./rating-show.html'));
 };
 
 exports.show = function() {
@@ -32,6 +32,6 @@ exports.cache = function() {
  */
 exports.save = function() {
     if (!this.viewModel.saveLog()) {
-        alert('please rate all arguments!');
+        alert('you DailyLog seems to not be complete!');
     }
 };

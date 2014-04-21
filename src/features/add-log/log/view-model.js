@@ -5,6 +5,8 @@ var createFoodRating = require('../view-models/food').create;
 var createSleepRating = require('../view-models/sleep').create;
 var createTrainRating = require('../view-models/train').create;
 
+var toolbar = require('../toolbar/controller');
+
 var LogViewModel = {
     init: function() {
         
@@ -16,6 +18,7 @@ var LogViewModel = {
         this.date = ko.observable();
         this.date.subscribe(this.loadLog, this);
         this.date(new Date());
+        
     },
     dateBack: function() {
         var date = this.date();
@@ -39,20 +42,31 @@ var LogViewModel = {
         this.sleep.resetRating(log.sleep);
         this.train.resetRating(log.train);
         this.isSaved(log.saved);
+        this.updateSaveBtn(log);
     },
     cacheLog: function() {
-        data.log.set(this.date(), {
+        var log = {
             food: this.food.rating() || null,
             sleep: this.sleep.rating() || null,
             train: this.train.rating() || null
-        });
+        };
+        data.log.set(this.date(), log);
+        this.updateSaveBtn(log);
     },
     saveLog: function() {
         var result = data.log.save(this.date());
         this.loadLog();
         return result;
+    },
+    updateSaveBtn: function(log) {
+        if (log.saved) {
+            toolbar.enableSaveBtn(false);
+        } else {
+            toolbar.enableSaveBtn(data.log.dataIsValid(log));
+        }
     }
 };
+
 
 exports.create = function() {
     var instance = Object.create(LogViewModel);

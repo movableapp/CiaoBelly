@@ -24,8 +24,17 @@ var LogViewModel = {
     },
     
     dateBack: function() {
+        var found = false;
         var date = this.date();
-        date.setDate(date.getDate() - 1);
+        
+        // skip all saved 
+        while (found === false) {
+            date.setDate(date.getDate() - 1);
+            if (data.log.get(date).saved === false) {
+                found = true;
+            }
+        }
+            
         this.date(date);
         
         this.dateForwardIsDisabled(data.datesAreEqual(this.date(), new Date()));
@@ -38,8 +47,13 @@ var LogViewModel = {
             return;
         }
         
+        // forward 1, if is a saved log then jump to today
         date.setDate(date.getDate() + 1);
-        this.date(date);
+        if (!data.log.get(date).saved) {
+            this.date(date);
+        } else {
+            this.date(new Date());
+        }
         
         this.dateForwardIsDisabled(data.datesAreEqual(this.date(), new Date()));
     },

@@ -23,6 +23,12 @@ var LogViewModel = {
     },
     dateForward: function() {
         var date = this.date();
+        
+        // prevent future dates!
+        if (data.datesAreEqual(date, new Date())) {
+            return;
+        }
+        
         date.setDate(date.getDate() + 1);
         this.date(date);
     },

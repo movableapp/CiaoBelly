@@ -1,7 +1,7 @@
 
 var storage = require('web-storage');
 
-var strategy = 'memory';
+var strategy = 'session';
 
 exports.set = function(key, val) {
 //    console.log('set', key, val);

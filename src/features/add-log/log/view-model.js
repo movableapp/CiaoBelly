@@ -11,6 +11,7 @@ var LogViewModel = {
         this.food = createFoodRating();
         this.sleep = createSleepRating();
         this.train = createTrainRating();
+        this.isSaved = ko.observable();
         
         this.date = ko.observable();
         this.date.subscribe(this.loadLog, this);
@@ -37,6 +38,7 @@ var LogViewModel = {
         this.food.resetRating(log.food);
         this.sleep.resetRating(log.sleep);
         this.train.resetRating(log.train);
+        this.isSaved(log.saved);
     },
     cacheLog: function() {
         data.log.set(this.date(), {
@@ -45,7 +47,11 @@ var LogViewModel = {
             train: this.train.rating() || null
         });
     },
-    saveLog: function() {}
+    saveLog: function() {
+        var result = data.log.save(this.date());
+        this.loadLog();
+        return result;
+    }
 };
 
 exports.create = function() {

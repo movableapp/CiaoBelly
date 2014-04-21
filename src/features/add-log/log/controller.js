@@ -7,6 +7,7 @@ var viewModel = require('./view-model');
 
 exports.init = function() {
     koTemplate.register('add-log/rating', require('./rating.html'));
+    koTemplate.register('add-log/show-rating', require('./show-rating.html'));
 };
 
 exports.show = function() {
@@ -30,5 +31,7 @@ exports.cache = function() {
  * after this operation the log is not editable anymore.
  */
 exports.save = function() {
-    this.viewModel.saveLog();
+    if (!this.viewModel.saveLog()) {
+        alert('please rate all arguments!');
+    }
 };

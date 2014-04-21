@@ -5,9 +5,9 @@
         <h2 class="title" data-bind="textDate:date"></h2>
         <a href="#dateForward" class="btn" data-bind="click:dateForward">&raquo;</a>
     </div>
-    
-    <div>
-    
+
+    <div data-bind="if:!isSaved()">
+
         <div class="log-rate" data-bind="template: {
             name: 'add-log/rating',
             data: sleep
@@ -22,7 +22,25 @@
             name: 'add-log/rating',
             data: train
         }"></div>
+
+    </div>
     
+    
+    <div data-bind="if:isSaved()">
+        <div class="log-rate" data-bind="template: {
+            name: 'add-log/show-rating',
+            data: sleep
+        }"></div>
+
+        <div class="log-rate" data-bind="template: {
+            name: 'add-log/show-rating',
+            data: food
+        }"></div>
+
+        <div class="log-rate" data-bind="template: {
+            name: 'add-log/show-rating',
+            data: train
+        }"></div>
     </div>
     
 </div>

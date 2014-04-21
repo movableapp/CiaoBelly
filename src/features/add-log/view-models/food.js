@@ -2,14 +2,11 @@
 var extend = require('utils/extend');
 var commonViewModel = require('./common');
 
-var FoodViewModel = extend({}, commonViewModel, {
+var FoodViewModel = commonViewModel.extend({
     init: function() {
+        this._init();
         this.type = 'Food';
     }
 });
 
-exports.create = function() {
-    var instance = Object.create(FoodViewModel);
-    instance.init();
-    return instance;
-};
+exports.create = commonViewModel.create.bind(FoodViewModel);

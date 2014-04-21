@@ -1,0 +1,44 @@
+
+@spacing: 25px;
+
+.log-rate {
+    margin-bottom: @spacing;
+    padding-bottom: @spacing;
+    border-bottom: 1px solid @themeColor;
+    h2 {
+        text-align: center;
+    }
+    &:first-child {
+        margin-top: @spacing;
+    }
+    &:last-child {
+        margin:0;
+        border: 0px solid #fff;
+    }
+}
+
+
+.star-rating {
+    .flex-row();
+    .justify-content(space-between);
+    -webkit-justify-content: space-between;
+    margin: 10px auto;
+    
+    .btn {
+        width: 38px;
+        padding: 0;
+        text-align: center;
+        font-size: 15pt;
+        color: @themeColor !important;
+        text-shadow: 0 1px contrast(@themeColor);
+        border: 2px solid @themeColor;
+        border-radius: 25px !important;
+        background: transparent !important;
+    }
+    
+    .btn--isActive {
+        background: @themeColor !important;
+        color: contrast(@themeColor) !important;
+        text-shadow: none;
+    }
+}

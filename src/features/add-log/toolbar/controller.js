@@ -1,7 +1,8 @@
 
 var layoutEngine = require('layout-engine');
-var template = require('./template.html');
 
 exports.show = function() {
-    layoutEngine.render(template, {}, 'header');
+    var template = require('./template.html');
+    var viewModel = require('./view-model');
+    layoutEngine.render(template, viewModel.create(), 'header');
 };

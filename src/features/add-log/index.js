@@ -2,7 +2,7 @@
 var router = require('router');
 
 var toolbar = require('./toolbar/controller');
-var page = require('./page/controller');
+var page = require('./log/controller');
 
 exports.controllers = [
     toolbar,

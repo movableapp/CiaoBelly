@@ -13,10 +13,11 @@
 @import "assets/less/libs/lesshat.less";
 @import "assets/less/libs/mixins.less";
 
+@import "assets/less/font.less";
 @import "assets/less/btn.less";
 @import "assets/less/toolbar.less";
 
-@theme: #f0861c;
+@themeColor: #f0861c;
 
 .flex-row() {
     .display(flex);
@@ -35,40 +36,43 @@
 }
 
 .btn-active() {
-    @color: lighten(@theme, 15%);
+    @color: lighten(@themeColor, 15%);
     background: @color;
     color: contrast(@color);
 }
 
 html, body {
     height: 100%;
-    font-family: tahoma;
+    font-family: sans-serif;
     font-size: 100.01%;
+    @bg: average(desaturate(lighten(@themeColor, 35%), 35%), #fff);
+    background: @bg;
 }
 
 #app {
     height: 100%;
     .flex-col();
-    font-size: .8em;
+    font-size: 1em;
 }
 
 #header {
-    @text: contrast(@theme);
-    background: @theme;
+    @text: contrast(@themeColor);
+    background: @themeColor;
     color: @text;
     border-bottom: 1px solid @text;
+    font-size: 1em;
     
     .btn {
         color: @text;
     }
-    .btn:active {
+    .btn:active,
+    .btn--isActive {
         .btn-active();
     }
-    
 }
 
 #main {
-    @bg: average(desaturate(lighten(@theme, 35%), 35%), #fff);
+    @bg: average(desaturate(lighten(@themeColor, 35%), 35%), #fff);
     @fg: contrast(@bg);
     
     .flex(1);
@@ -78,13 +82,19 @@ html, body {
     color: @fg;
     
     .btn {
-        @color: @theme;
+        @color: @themeColor;
         background: @color;
         color: contrast(@color);
         border-radius: 4px;
     }
-    .btn:active {
+    .btn:active,
+    .btn--isActive {
         .btn-active();
+    }
+    
+    .title {
+        color: contrast(@bg, @themeColor);
+        text-shadow: 0 1px contrast(@themeColor);
     }
     
 }

@@ -2,14 +2,11 @@
 var extend = require('utils/extend');
 var commonViewModel = require('./common');
 
-var SleepViewModel = extend({}, commonViewModel, {
+var SleepViewModel = commonViewModel.extend({
     init: function() {
-        this.type = 'sleep';
+        this._init();
+        this.type = 'Sleep';
     }
 });
 
-exports.create = function() {
-    var instance = Object.create(SleepViewModel);
-    instance.init();
-    return instance;
-};
+exports.create = commonViewModel.create.bind(SleepViewModel);

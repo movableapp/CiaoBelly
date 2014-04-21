@@ -1,4 +1,21 @@
 <div>
-    CiaoBelly -- Home
+    <ul data-bind="foreach:logs">
+        <li>
+            <h1 data-bind="text:time"></h1>
+            <div>
+                <h2>Sleep</h2>
+                <span data-bind="text:sleep"></span>
+            </div>
+            <div>
+                <h2>Food</h2>
+                <span data-bind="text:food"></span>
+            </div>
+            <div>
+                <h2>Train</h2>
+                <span data-bind="text:train"></span>
+            </div>
+            <hr>
+        </li>
+    </ul>
 </div>
 

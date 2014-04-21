@@ -3,6 +3,7 @@ var extend = require('utils/extend');
 var db = require('./db');
 
 var emptyLog = {
+    time: null,
     sleep: null,
     food: null,
     train: null,
@@ -14,8 +15,26 @@ exports.get = function(date) {
     return extend({}, emptyLog, log);
 };
 
+exports.getAll = function() {
+    var keys = db.get('dailies') || [];
+    keys = keys.sort();
+    keys.reverse();
+    
+    var list = [];
+    var log = null;
+    keys.forEach(function(key) {
+        log = db.get(key);
+        if (log.saved === true) {
+            list.push(log);
+        }
+    });
+    
+    return list;
+};
+
 exports.set = function(date, data) {
     var key = makeKey(date);
+    data.time = date.getTime();
     db.set(key, data);
     pushKey(key);
 };

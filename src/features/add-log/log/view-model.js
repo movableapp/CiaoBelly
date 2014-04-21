@@ -19,11 +19,16 @@ var LogViewModel = {
         this.date.subscribe(this.loadLog, this);
         this.date(new Date());
         
+        this.dateForwardIsDisabled = ko.observable();
+        this.dateForwardIsDisabled(data.datesAreEqual(this.date(), new Date()));
     },
+    
     dateBack: function() {
         var date = this.date();
         date.setDate(date.getDate() - 1);
         this.date(date);
+        
+        this.dateForwardIsDisabled(data.datesAreEqual(this.date(), new Date()));
     },
     dateForward: function() {
         var date = this.date();
@@ -35,7 +40,10 @@ var LogViewModel = {
         
         date.setDate(date.getDate() + 1);
         this.date(date);
+        
+        this.dateForwardIsDisabled(data.datesAreEqual(this.date(), new Date()));
     },
+    
     loadLog: function() {
         var log = data.log.get(this.date());
         this.food.resetRating(log.food);

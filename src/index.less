@@ -101,6 +101,11 @@ textarea, input { outline: none; }
     .btn--isActive {
         .btn-active();
     }
+    .btn--isDisabled,
+    .btn--isDisabled.btn--isActive {
+        background: lighten(@themeColor, 30%);
+        color: lighten(@themeColor, 20%);
+    }
     
     .title {
         color: contrast(@bg, @themeColor);

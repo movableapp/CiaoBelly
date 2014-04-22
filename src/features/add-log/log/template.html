@@ -6,35 +6,35 @@
         <span class="btn" data-bind="event:{touchstart:dateForward}, css: { 'btn--isDisabled':dateForwardIsDisabled}">&raquo;</span>
     </div>
 
-    <div data-bind="if:!isSaved()">
-        <div class="log-rate" data-bind="template: {
-            name: 'add-log/rating-choose',
-            data: sleep
-        }"></div>
-        <div class="log-rate" data-bind="template: {
-            name: 'add-log/rating-choose',
-            data: food
-        }"></div>
-        <div class="log-rate" data-bind="template: {
-            name: 'add-log/rating-choose',
-            data: train
-        }"></div>
-    </div>
+    <!-- ko if: !isSaved() --> 
+    <div class="log-rate" data-bind="template: {
+        name: 'add-log/rating-choose',
+        data: sleep
+    }"></div>
+    <div class="log-rate" data-bind="template: {
+        name: 'add-log/rating-choose',
+        data: food
+    }"></div>
+    <div class="log-rate" data-bind="template: {
+        name: 'add-log/rating-choose',
+        data: train
+    }"></div>
+    <!-- /ko -->
     
     
-    <div data-bind="if:isSaved()">
-        <div class="log-rate" data-bind="template: {
-            name: 'add-log/rating-show',
-            data: sleep
-        }"></div>
-        <div class="log-rate" data-bind="template: {
-            name: 'add-log/rating-show',
-            data: food
-        }"></div>
-        <div class="log-rate" data-bind="template: {
-            name: 'add-log/rating-show',
-            data: train
-        }"></div>
-    </div>
+    <!-- ko if: isSaved() -->
+    <div class="log-rate" data-bind="template: {
+        name: 'add-log/rating-show',
+        data: sleep
+    }"></div>
+    <div class="log-rate" data-bind="template: {
+        name: 'add-log/rating-show',
+        data: food
+    }"></div>
+    <div class="log-rate" data-bind="template: {
+        name: 'add-log/rating-show',
+        data: train
+    }"></div>
+    <!-- /ko -->
     
 </div>

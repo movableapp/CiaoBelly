@@ -46,13 +46,12 @@ module.exports = function (grunt) {
 //                        css: false,
 //                        js: false
 //                    },
-//                    manifest: {
-//                        filename: 'appcache',
-//                        exclude: [
-//                            '/assets/readme.txt',    // exclude file path
-//                            '/assets/css/images/**'  // exclude an entire folder
-//                        ]
-//                    }
+                    manifest: {
+                        filename: 'appcache',
+                        exclude: [
+                            '/assets/**'
+                        ]
+                    }
                 },
 //                karma: {
 //                    test: {

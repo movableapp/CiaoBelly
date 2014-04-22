@@ -1,9 +1,9 @@
 <div>
     
     <div class="log-date">
-        <a href="#dateBack" class="btn" data-bind="event:{touchstart:dateBack}">&laquo;</a>
+        <span class="btn" data-bind="event:{touchstart:dateBack}">&laquo;</span>
         <h2 class="title" data-bind="textDate:date"></h2>
-        <a href="#dateForward" class="btn" data-bind="event:{touchstart:dateForward}, css: { 'btn--isDisabled':dateForwardIsDisabled}">&raquo;</a>
+        <span class="btn" data-bind="event:{touchstart:dateForward}, css: { 'btn--isDisabled':dateForwardIsDisabled}">&raquo;</span>
     </div>
 
     <div data-bind="if:!isSaved()">

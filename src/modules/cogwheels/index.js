@@ -17,11 +17,11 @@ exports.start = function(config) {
     
     config = config || {};
     
-    layoutEngine.init(config);
+    layoutEngine.init(config['layout-engine']);
     layoutEngine.start();
     
-    router.init(config);
-    webStorage.init(config);
+    router.init(config['router']);
+    webStorage.init(config['web-storage']);
     
     /**
      * Features Init

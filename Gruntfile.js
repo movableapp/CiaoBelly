@@ -41,17 +41,17 @@ module.exports = function (grunt) {
 //                        compress: false,
 //                        mangle: false
 //                    },
-                    minifyHtml: false,
+//                    minifyHtml: false,
 //                    inline: {
 //                        css: false,
 //                        js: false
 //                    },
-                    manifest: {
-                        filename: 'appcache',
-                        exclude: [
-                            '/assets/**'
-                        ]
-                    }
+//                    manifest: {
+//                        filename: 'appcache',
+//                        exclude: [
+//                            '/assets/**'
+//                        ]
+//                    }
                 },
 //                karma: {
 //                    test: {

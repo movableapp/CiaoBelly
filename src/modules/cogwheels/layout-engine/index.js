@@ -4,9 +4,9 @@ var regionHandler = require('./region-handler');
 
 var layout = {
 	init: function(config) {
-		this.config = config;
-		this.root = config.root || document.body;
-		this.defaultRegion = config.defaultRegion || 'main';
+		this.config = config || {};
+		this.root = this.config['root'] || document.body;
+		this.defaultRegion = this.config['defaultRegion'] || 'main';
 		this.regions = {};
 		this.handlers = {};
 		this.regionHandlers = {};

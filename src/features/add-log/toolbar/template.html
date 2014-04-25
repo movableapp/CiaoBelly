@@ -4,6 +4,6 @@
         <span href="/" data-bind="navigate" class="btn">&laquo; Back</span>
     </div>
     <div class="toolbar--right">
-        <span data-bind="event:{touchstart:save}, if:saveBtnStatus" class="btn">Save</span>
+        <span data-bind="click, if:saveBtnStatus" class="btn">Save</span>
     </div>
 </div>

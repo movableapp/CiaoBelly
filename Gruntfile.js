@@ -13,7 +13,7 @@
 module.exports = function (grunt) {
     
     // Initialize PoliteJS Workspace
-    var Workspace = require('./lib/workspace');
+    var Workspace = require('grunt-workspace');
     Workspace.init(grunt);
 
     
@@ -33,9 +33,9 @@ module.exports = function (grunt) {
          * Workspace Configuration
          */
         'workspace': {
-            options: {
-                minifyTemplates: false,
-                release: {
+//            options: {
+//                minifyTemplates: false,
+//                release: {
 //                    uglify: {
 //                        beautify: true,
 //                        compress: false,
@@ -49,10 +49,11 @@ module.exports = function (grunt) {
 //                    manifest: {
 //                        filename: 'appcache',
 //                        exclude: [
-//                            '/assets/**'
+//                            '/assets/readme.txt',    // exclude file path
+//                            '/assets/css/images/**'  // exclude an entire folder
 //                        ]
 //                    }
-                },
+//                },
 //                karma: {
 //                    test: {
 //                        browsers: [
@@ -64,7 +65,7 @@ module.exports = function (grunt) {
 //                        ]
 //                    }
 //                }
-            }
+//            }
         }
 		
 	});
@@ -87,6 +88,12 @@ module.exports = function (grunt) {
      * building process to your needs.
      *
      */
+    
+    grunt.registerTask('install', [
+        'workspace',
+    	'wks-npm-install-config',
+		'wks-npm-install-run',
+    ]);
     
     grunt.registerTask('build', [
         'workspace',
@@ -142,6 +149,18 @@ module.exports = function (grunt) {
         'watch:wkd'
     ]);
     
+    // start debug server in development mode
+    grunt.registerTask('server', [
+        'workspace',
+        'wks-debug-server:wkd'
+    ]);
+    
+    // start debug server in release mode
+    grunt.registerTask('server-release', [
+        'workspace',
+        'wks-debug-server:wkr'
+    ]);
+    
     grunt.registerTask('test', [
         'build',
         'wks-karma',
@@ -159,12 +178,6 @@ module.exports = function (grunt) {
         'wks-karma',
         'karma:wks-ci:run',
 		'watch:wks-ci'
-    ]);
-    
-    grunt.registerTask('install', [
-        'workspace',
-    	'wks-npm-install-config',
-		'wks-npm-install-run',
     ]);
     
     grunt.registerTask('default', ['install','release']);

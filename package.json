@@ -56,5 +56,8 @@
     {
       "type": "MIT"
     }
-  ]
+  ],
+  "dependencies": {
+    "fastclick": "~1.0.1"
+  }
 }
